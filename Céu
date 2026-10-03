@@ -1,0 +1,26 @@
+-- ==========================================
+-- SCRIPT DE CÉU VERMELHO (APENAS O CÉU)
+-- Cole em um Script dentro do ServerScriptService
+-- ==========================================
+
+local Lighting = game:GetService("Lighting")
+
+-- 1. Remove qualquer céu antigo para não dar conflito
+for _, child in pairs(Lighting:GetChildren()) do
+	if child:IsA("Sky") then
+		child:Destroy()
+	end
+end
+
+-- 2. Cria o novo céu vermelho
+local novoSky = Instance.new("Sky")
+novoSky.Name = "CeuVermelho"
+novoSky.SkyboxBk = "rbxassetid://159454299"
+novoSky.SkyboxDn = "rbxassetid://159454296"
+novoSky.SkyboxFt = "rbxassetid://159454293"
+novoSky.SkyboxLf = "rbxassetid://159454286"
+novoSky.SkyboxRt = "rbxassetid://159454300"
+novoSky.SkyboxUp = "rbxassetid://159454288"
+novoSky.Parent = Lighting
+
+print("Céu vermelho carregado com sucesso!")
